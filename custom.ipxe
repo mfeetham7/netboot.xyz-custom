@@ -15,13 +15,13 @@ goto ${custom_choice}
 goto custom_exit
 
 :option_one
-kernel http://pxe:8080/xcp-ng/netinstall/boot/alt/vmlinuz
-initrd http://pxe:8080/xcp-ng/netinstall/install.img
+KERNEL mboot.c32
+APPEND http://pxe:80/mnt/netbootxyz-assets/xcp-ng/netinstall/boot/xen.gz dom0_max_vcpus=1-16 dom0_mem=max:8192M com1=115200,8n1 console=com1,vga --- http://pxe:80/mnt/netbootxyz-assets/xcp-ng/netinstall/boot/vmlinuz netinstall console=hvc0 console=tty0 --- http://pxe:80/mnt/netbootxyz-assets/xcp-ng/netinstall/install.img
 boot || goto custom_exit
 
 :option_two
 kernel https://boot.netboot.xyz/memdisk raw iso
-initrd http://pxe:8080/xcp-ng-8.2.1.iso
+initrd http://pxe:8080/mnt/netbootxyz-assets/xcp-ng/xcp-ng-8.2.1.iso
 boot || goto custom_exit
 
 :option_three
