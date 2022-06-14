@@ -15,7 +15,7 @@ goto ${custom_choice}
 goto custom_exit
 
 :option_one
-kernel http://pxe:8080/xcp-ng/netinstall/boot/vmlinuz
+kernel http://pxe:8080/xcp-ng/netinstall/boot/alt/vmlinuz
 initrd http://pxe:8080/xcp-ng/netinstall/install.img
 boot || goto custom_exit
 
