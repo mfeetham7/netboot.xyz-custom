@@ -17,7 +17,8 @@ goto custom_exit
 :option_one
 #kernel http://pxe:8080/xcp-ng/netinstall/boot/pxelinux/mboot.c32
 kernel http://pxe:8080/xcp-ng/netinstall/boot/vmlinuz
-append netinstall console=tty0 --- http://pxe:8080/xcp-ng/netinstall/install.img
+initrd http://pxe:8080/xcp-ng/netinstall/install.img
+append netinstall console=tty0
 boot || goto custom_exit
 
 :option_two
