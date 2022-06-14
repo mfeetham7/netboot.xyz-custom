@@ -15,8 +15,9 @@ goto ${custom_choice}
 goto custom_exit
 
 :option_one
-KERNEL http://pxe:80/xcp-ng/netinstall/boot/pxelinux/mboot.c32
-APPEND http://pxe:80/xcp-ng/netinstall/boot/xen.gz dom0_max_vcpus=1-16 dom0_mem=max:8192M com1=115200,8n1 console=com1,vga --- http://pxe:80/xcp-ng/netinstall/boot/vmlinuz netinstall console=hvc0 console=tty0 --- http://pxe:80/xcp-ng/netinstall/install.img
+#kernel http://pxe:80/xcp-ng/netinstall/boot/pxelinux/mboot.c32
+kernel http://pxe:80/xcp-ng/netinstall/boot/vmlinuz
+append netinstall console=hvc0 console=tty0 --- http://pxe:80/xcp-ng/netinstall/install.img
 boot || goto custom_exit
 
 :option_two
